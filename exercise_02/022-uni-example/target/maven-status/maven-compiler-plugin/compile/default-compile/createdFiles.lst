@@ -1,0 +1,10 @@
+it\unical\inf\asd\jpa\dao\StudentDao.class
+it\unical\inf\asd\jpa\entities\Student.class
+it\unical\inf\asd\jpa\entities\Address.class
+it\unical\inf\asd\jpa\entities\CourseMaterial.class
+it\unical\inf\asd\jpa\entities\Student$Gender.class
+it\unical\inf\asd\jpa\entities\other\Customer.class
+it\unical\inf\asd\jpa\Application.class
+it\unical\inf\asd\jpa\dao\CustomerDao.class
+it\unical\inf\asd\jpa\entities\Course.class
+it\unical\inf\asd\jpa\entities\Teacher.class
