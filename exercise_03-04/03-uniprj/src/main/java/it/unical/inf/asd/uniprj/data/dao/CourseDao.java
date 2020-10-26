@@ -16,5 +16,4 @@ public interface CourseDao extends JpaRepository<Course, Long> {
   @Query("select t.title from Course t where t.id=:id")
   String findTitleById(@Param("id") Long id);
 
-  findByTitle
 }
