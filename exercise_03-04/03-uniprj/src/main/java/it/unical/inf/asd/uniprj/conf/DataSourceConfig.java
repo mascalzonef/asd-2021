@@ -21,10 +21,12 @@ import java.util.HashMap;
 
 //@Configuration
 //@EnableTransactionManagement
-//@EnableJpaRepositories(basePackages = {"it.unical.inf.asd.uniprj.services"},
+//@EnableJpaRepositories(basePackages = {"it.unical.inf.asd.uniprj.data.sservices"},
 //    entityManagerFactoryRef = "entityManagerFactory",
 //    transactionManagerRef= "transactionManager")
 public class DataSourceConfig {
+
+  /*
 
   @Value("${spring.datasource.show-sql}")
   private String showSql;
@@ -64,4 +66,5 @@ public class DataSourceConfig {
     m.put(AvailableSettings.SHOW_SQL, showSql);
     return m;
   }
+  */
 }

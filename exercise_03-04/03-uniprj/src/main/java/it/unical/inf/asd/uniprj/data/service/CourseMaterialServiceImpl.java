@@ -1,18 +1,15 @@
 package it.unical.inf.asd.uniprj.data.service;
 
 import it.unical.inf.asd.uniprj.data.dao.CourseDao;
-import it.unical.inf.asd.uniprj.data.dao.TeacherDao;
-import it.unical.inf.asd.uniprj.data.entities.Course;
-import it.unical.inf.asd.uniprj.data.entities.Teacher;
+import it.unical.inf.asd.uniprj.data.dao.CourseMaterialDao;
+import it.unical.inf.asd.uniprj.data.entities.CourseMaterial;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 @Service
-public class CourseServiceImpl implements CourseService {
+public class CourseMaterialServiceImpl implements CourseMaterialService {
 
   @Autowired
-  private CourseDao courseDao;
+  private CourseMaterialDao courseDao;
 
 }

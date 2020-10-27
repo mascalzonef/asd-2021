@@ -10,17 +10,17 @@ import java.util.Objects;
 public class Course {
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(name = "TITLE", unique = true)
     private String title;
 
-    @ManyToOne(optional = false)
+    @ManyToOne()
     @JoinColumn(name = "TEACHER_ID", referencedColumnName = "ID")
     private Teacher teacher;
 
-    @OneToOne(mappedBy = "course")
+    @OneToOne(mappedBy = "course", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private CourseMaterial material;
 
     @ManyToMany(mappedBy = "courses")
@@ -87,5 +87,10 @@ public class Course {
     @Override
     public int hashCode() {
         return Objects.hash(id, title, teacher, material, students);
+    }
+
+    @Override
+    public String toString() {
+        return "Course{" + "id=" + id + ", title='" + title + '\'' + ", teacher=" + teacher + '}';
     }
 }

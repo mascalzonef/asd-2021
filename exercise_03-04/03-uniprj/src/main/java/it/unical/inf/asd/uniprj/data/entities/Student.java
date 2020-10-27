@@ -9,6 +9,7 @@ import javax.persistence.Entity;
 import javax.persistence.EnumType;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
@@ -29,7 +30,7 @@ public class Student {
     }
 
     @Id
-    @GeneratedValue
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "ID")
     private Long id;
 
@@ -44,7 +45,7 @@ public class Student {
 //    @Temporal(TemporalType.DATE)
 //    private Date birthDateAsDate;
 
-    @Column(name = "BIRTHDATE", insertable = false, updatable = false) //means that JPA won't include the column in the insert statement when saving the entity. But it will when updating the entity, and it will load it from the database.
+    @Column(name = "BIRTHDATE")
     private LocalDate birthDate;
 
     @Enumerated(EnumType.STRING)
@@ -141,7 +142,9 @@ public class Student {
 
     @Override
     public String toString() {
-        return "Student{" + "id=" + id + ", lastName='" + lastName + '\'' + ", firstName='" + firstName + '\'' + '}';
+        return "Student{" + "id=" + id + ", lastName='" + lastName + '\'' + ", firstName='" + firstName + '\''
+            + ", birthDate=" + birthDate + ", gender=" + gender + ", wantsNewsletter=" + wantsNewsletter + ", address="
+            + address + '}';
     }
 
     @Override

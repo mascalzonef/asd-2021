@@ -4,6 +4,5 @@ import it.unical.inf.asd.uniprj.data.entities.Teacher;
 
 import java.util.List;
 
-public interface TeacherService {
-  List<Teacher> getAllTeacher();
+public interface CourseService {
 }
