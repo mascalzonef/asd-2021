@@ -30,17 +30,13 @@ public class MyTest extends AbstractUniPrjTest {
 
     teacherDao.save(teacher);
 
-    List<Teacher> all = teacherDao.findAll();
-    for (Teacher t: all) {
-      System.out.println(t);
-    }
-
+    System.out.println(teacherDao.findAll().size() +"-"+ courseDao.findAll().size());
     try {
       teacherService.deleteTeacherAndCourseEmpty();
     } catch (Exception e) {
       e.printStackTrace();
     }
-
+    System.out.println(teacherDao.findAll().size() +"-"+ courseDao.findAll().size());
   }
 
   @Test

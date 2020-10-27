@@ -16,14 +16,14 @@ public class Course {
     @Column(name = "TITLE", unique = true)
     private String title;
 
-    @ManyToOne()
+    @ManyToOne
     @JoinColumn(name = "TEACHER_ID", referencedColumnName = "ID")
     private Teacher teacher;
 
     @OneToOne(mappedBy = "course", cascade = CascadeType.REMOVE, orphanRemoval = true)
     private CourseMaterial material;
 
-    @ManyToMany(mappedBy = "courses")
+    @ManyToMany(mappedBy = "courses", fetch = FetchType.EAGER)
     private List<Student> students = new ArrayList<>();
 
     public Course() {}

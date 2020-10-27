@@ -24,14 +24,16 @@ public class TeacherServiceImpl implements TeacherService {
     return teacherDao.findAll();
   }
 
-//  @Transactional
+  @Transactional
   @Override
   public void deleteTeacherAndCourseEmpty() {
     List<Course> all = courseDao.findAll();
     for (Course c : all) {
       if (c.getStudents().isEmpty()) {
-        teacherDao.delete(c.getTeacher());
+        Teacher teacher = c.getTeacher();
         courseDao.delete(c);
+        teacherDao.delete(teacher);
+        throw new RuntimeException("ERROR");
       }
     }
 
