@@ -1,5 +1,6 @@
 package it.unical.inf.asd.uniprj.data.entities;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -26,26 +27,30 @@ public class Teacher {
 
    public Teacher() {}
 
-   @OneToMany(mappedBy = "teacher")
+   @OneToMany(mappedBy = "teacher", cascade = CascadeType.REMOVE)
    private List<Course> courses;
 
-   public Long id() {
-       return id;
-   }
+  public Long getId() {
+    return id;
+  }
 
-   public String firstName() {
-       return firstName;
-   }
+  public String getFirstName() {
+    return firstName;
+  }
 
-   public String lastName() {
-       return lastName;
-   }
+  public String getLastName() {
+    return lastName;
+  }
 
-   public List<Course> courses() {
-       return courses;
-   }
+  public List<Course> getCourses() {
+    return courses;
+  }
 
-   public void setId(Long id) {
+  public void setCourses(List<Course> courses) {
+    this.courses = courses;
+  }
+
+  public void setId(Long id) {
        this.id = id;
    }
 
