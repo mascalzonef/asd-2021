@@ -1,7 +1,4 @@
-package it.unical.inf.asd.uniprj.inter.data;
-
-import it.unical.inf.asd.uniprj.inter.data.entities.Customer;
-import it.unical.inf.asd.uniprj.inter.data.entities.Teller;
+package it.unical.inf.asd.uniprj.inter.data.entities;
 
 import javax.persistence.Basic;
 import javax.persistence.Column;
@@ -19,7 +16,7 @@ import java.util.Objects;
 
 @Entity
 @Table(name = "ACCOUNT", uniqueConstraints =
-  @UniqueConstraint(columnNames = {"REGION_CODE","RSS_NO"})
+  @UniqueConstraint(columnNames = { "REGION_CODE", "RSS_NO" })
 )
 @Inheritance(strategy = InheritanceType.JOINED)
 public class Account {
@@ -46,9 +43,6 @@ public class Account {
 
   @OneToOne
   private Customer customer;
-
-  @OneToOne
-  private Teller teller;
 
   public Integer getId() {
     return id;
@@ -98,14 +92,6 @@ public class Account {
     this.customer = customer;
   }
 
-  public Teller getTeller() {
-    return teller;
-  }
-
-  public void setTeller(Teller teller) {
-    this.teller = teller;
-  }
-
   @Override
   public boolean equals(Object o) {
     if (this == o)
@@ -115,12 +101,11 @@ public class Account {
     Account account = (Account) o;
     return Objects.equals(id, account.id) && Objects.equals(creationDate, account.creationDate) && Objects
         .equals(regionCode, account.regionCode) && Objects.equals(rssNo, account.rssNo) && Objects
-        .equals(credential, account.credential) && Objects.equals(customer, account.customer) && Objects
-        .equals(teller, account.teller);
+        .equals(credential, account.credential) && Objects.equals(customer, account.customer);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(id, creationDate, regionCode, rssNo, credential, customer, teller);
+    return Objects.hash(id, creationDate, regionCode, rssNo, credential, customer);
   }
 }

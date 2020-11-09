@@ -6,18 +6,18 @@ import javax.persistence.Table;
 import java.util.Objects;
 
 @Entity
-@Table(name = "CHECKER")
-public class AccountChecker extends Account {
+@Table(name = "OBS")
+public class AccountObs extends Account {
 
-  @Column(name = "AREA", length = 50)
-  private String area;
+  @Column(name = "AREA", length = 255)
+  private String description;
 
-  public String getArea() {
-    return area;
+  public String getDescription() {
+    return description;
   }
 
-  public void setArea(String area) {
-    this.area = area;
+  public void setDescription(String description) {
+    this.description = description;
   }
 
   @Override
@@ -28,12 +28,12 @@ public class AccountChecker extends Account {
       return false;
     if (!super.equals(o))
       return false;
-    AccountChecker that = (AccountChecker) o;
-    return Objects.equals(area, that.area);
+    AccountObs that = (AccountObs) o;
+    return Objects.equals(description, that.description);
   }
 
   @Override
   public int hashCode() {
-    return Objects.hash(super.hashCode(), area);
+    return Objects.hash(super.hashCode(), description);
   }
 }

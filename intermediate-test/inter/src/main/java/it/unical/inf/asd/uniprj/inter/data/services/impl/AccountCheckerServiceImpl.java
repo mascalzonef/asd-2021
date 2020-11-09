@@ -1,6 +1,6 @@
-package it.unical.inf.asd.uniprj.inter.data.entities.services.impl;
+package it.unical.inf.asd.uniprj.inter.data.services.impl;
 
-import it.unical.inf.asd.uniprj.inter.data.entities.services.AccountCheckerService;
+import it.unical.inf.asd.uniprj.inter.data.services.AccountCheckerService;
 import org.springframework.stereotype.Service;
 
 @Service

@@ -1,4 +1,4 @@
-package it.unical.inf.asd.uniprj.inter.data.entities.dao;
+package it.unical.inf.asd.uniprj.inter.data.dao;
 
 import it.unical.inf.asd.uniprj.inter.data.entities.AccountBase;
 import org.springframework.data.jpa.repository.JpaRepository;
