@@ -18,7 +18,7 @@ public class AvailableBalance {
   private Long id;
 
   @ManyToOne
-  @JoinColumn(name = "bankAccount_id", referencedColumnName = "id")
+  @JoinColumn(name = "bankAccount_id")
   private BankAccount bankAccount;
 
   @ManyToOne

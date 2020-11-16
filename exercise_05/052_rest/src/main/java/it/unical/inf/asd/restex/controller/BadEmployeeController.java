@@ -20,21 +20,11 @@ import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
 
 @RestController
-@RequestMapping("/restex")
-public class EmployeeController {
+@RequestMapping("/bad-restex")
+public class BadEmployeeController {
 
-  // CHANGE TO USE DTO
   @Autowired
   private EmployeeEntitiesService employeeEntitiesService;
-
-  @Autowired
-  private CallingCardService callingCardService;
-
-  @GetMapping("/callingCardService/{employee-id}")
-  public ResponseEntity<CallingCardDto> callingCard(@PathVariable("employee-id") Long id) {
-    return ResponseEntity.ok(callingCardService.getCallingCard(id));
-  }
-
 
   @GetMapping("/employees")
   public ResponseEntity<List<Employee>> all() {

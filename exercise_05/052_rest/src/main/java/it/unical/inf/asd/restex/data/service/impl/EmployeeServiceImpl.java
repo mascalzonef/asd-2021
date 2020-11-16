@@ -1,69 +1,44 @@
 package it.unical.inf.asd.restex.data.service.impl;
 
-import it.unical.inf.asd.restex.core.exception.EmployeeException;
 import it.unical.inf.asd.restex.core.exception.EmployeeNotFoundException;
 import it.unical.inf.asd.restex.data.dao.EmployeeDao;
+import it.unical.inf.asd.restex.data.dto.EmployeeDto;
+import it.unical.inf.asd.restex.data.dto.EmployeeSimpleDto;
 import it.unical.inf.asd.restex.data.entities.Employee;
 import it.unical.inf.asd.restex.data.service.EmployeeService;
+import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
-@Service
 public class EmployeeServiceImpl implements EmployeeService {
 
   @Autowired
   private EmployeeDao employeeDao;
 
+  @Autowired
+  private ModelMapper modelMapper;
+
   @Override
-  public List<Employee> getAllEmployee() {
-    return employeeDao.findAll();
+  public List<EmployeeSimpleDto> getAllEmployee() {
+    List<Employee> employees = employeeDao.findAll();
+    employees.stream().map(empl -> modelMapper.map(empl, EmployeeSimpleDto.class)).collect(Collectors.toList());
+    return null;
   }
 
   @Override
-  public List<Employee> getAllEmployee(String role) {
-    return employeeDao.findAllByRole(role);
+  public EmployeeDto getEmployee(Long id) {
+    Employee employee = employeeDao.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
+    return modelMapper.map(employee, EmployeeDto.class);
   }
 
   @Override
-  public Employee getEmployee(Long id) {
-    return employeeDao.findById(id).orElseThrow(() -> new EmployeeNotFoundException(id));
-    /*
-    Optional<Employee> opt = employeeDao.findById(id);
-    if(opt.isPresent())
-      return opt.get();
-    else
-      throw new EmployeeNotFoundException(id);
-    */
-  }
+  public EmployeeDto addEmployee(EmployeeDto dto) {
+    Employee employee = modelMapper.map(dto, Employee.class);
+    Employee saved = employeeDao.save(employee);
+    return modelMapper.map(saved, EmployeeDto.class);
 
-  @Override
-  public Employee addEmployee(Employee employee) {
-    return employeeDao.save(employee);
-  }
-
-  @Override
-  public Employee updateEmployee(Long id,
-      Employee employeeToSave) {
-
-    return employeeDao.findById(id).map(employee -> {
-      employee.setName(employeeToSave.getName());
-      employee.setRole(employeeToSave.getRole());
-      return employeeDao.save(employee);
-    }).orElseThrow(() -> new EmployeeException());
-
-    /*
-    Employee e = getEmployee(id);
-    e.setName(employee.getName());
-    e.setRole(employee.getRole());
-    return employeeDao.save(e);
-     */
-  }
-
-  @Override
-  public void delete(Long id) {
-    employeeDao.deleteById(id);
   }
 }

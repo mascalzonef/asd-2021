@@ -1,24 +1,34 @@
 package it.unical.inf.asd.restex.data.entities;
 
-import java.util.Objects;
-
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
+import java.util.Objects;
 
 @Entity
+@Table(name = "EMPLOYEE")
 public class Employee {
 
-  private @Id @GeneratedValue Long id;
+  @Id
+  @GeneratedValue
+  @Column(name = "ID")
+  private Long id;
+
+  @Column(name = "NAME", unique = true)
   private String name;
+
+  @Column(name = "ROLE", length = 50)
   private String role;
 
-  Employee() {}
+  @ManyToOne
+  @JoinColumn(name = "COMPANY_ID", referencedColumnName = "ID")
+  private Company company;
 
-  Employee(String name, String role) {
-
-    this.name = name;
-    this.role = role;
+  public Employee() {
   }
 
   public Long getId() {
@@ -45,6 +55,14 @@ public class Employee {
     this.role = role;
   }
 
+  public Company getCompany() {
+    return company;
+  }
+
+  public void setCompany(Company company) {
+    this.company = company;
+  }
+
   @Override
   public boolean equals(Object o) {
 
@@ -53,8 +71,8 @@ public class Employee {
     if (!(o instanceof Employee))
       return false;
     Employee employee = (Employee) o;
-    return Objects.equals(this.id, employee.id) && Objects.equals(this.name, employee.name)
-        && Objects.equals(this.role, employee.role);
+    return Objects.equals(this.id, employee.id) && Objects.equals(this.name, employee.name) && Objects
+        .equals(this.role, employee.role);
   }
 
   @Override
@@ -64,6 +82,7 @@ public class Employee {
 
   @Override
   public String toString() {
-    return "Employee{" + "id=" + this.id + ", name='" + this.name + '\'' + ", role='" + this.role + '\'' + '}';
+    return "Employee{" + "id=" + id + ", name='" + name + '\'' + ", role='" + role + '\'' + ", company=" + company
+        + '}';
   }
 }
