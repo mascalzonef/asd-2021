@@ -1,12 +1,11 @@
 package it.unical.inf.asd.restex.controller;
 
-import it.unical.inf.asd.restex.core.service.CallingCardService;
-import it.unical.inf.asd.restex.data.dto.CallingCardDto;
 import it.unical.inf.asd.restex.data.entities.Employee;
 import it.unical.inf.asd.restex.data.service.EmployeeEntitiesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,6 +20,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/bad-restex")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class BadEmployeeController {
 
   @Autowired
@@ -59,7 +59,5 @@ public class BadEmployeeController {
     employeeEntitiesService.delete(id);
     return HttpStatus.OK;
   }
-
-
 
 }

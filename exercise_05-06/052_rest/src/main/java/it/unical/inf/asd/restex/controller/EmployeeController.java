@@ -2,11 +2,14 @@ package it.unical.inf.asd.restex.controller;
 
 import it.unical.inf.asd.restex.core.service.CallingCardService;
 import it.unical.inf.asd.restex.data.dto.CallingCardDto;
+import it.unical.inf.asd.restex.data.dto.EmployeeDto;
+import it.unical.inf.asd.restex.data.dto.EmployeeSimpleDto;
 import it.unical.inf.asd.restex.data.entities.Employee;
-import it.unical.inf.asd.restex.data.service.EmployeeEntitiesService;
+import it.unical.inf.asd.restex.data.service.EmployeeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -21,11 +24,12 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/restex")
+@CrossOrigin(origins = "*", allowedHeaders = "*")
 public class EmployeeController {
 
   // CHANGE TO USE DTO
   @Autowired
-  private EmployeeEntitiesService employeeEntitiesService;
+  private EmployeeService employeeService;
 
   @Autowired
   private CallingCardService callingCardService;
@@ -35,41 +39,49 @@ public class EmployeeController {
     return ResponseEntity.ok(callingCardService.getCallingCard(id));
   }
 
-
   @GetMapping("/employees")
-  public ResponseEntity<List<Employee>> all() {
-    return ResponseEntity.ok(employeeEntitiesService.getAllEmployee());
+  public ResponseEntity<List<EmployeeSimpleDto>> all() {
+    return ResponseEntity.ok(employeeService.getAllEmployee());
   }
 
   @GetMapping("/employees/test")
-  public ResponseEntity<Employee> test(@RequestParam("name") String name) {
-    return ResponseEntity.ok(employeeEntitiesService.getEmployeeByName(name));
+  public ResponseEntity<EmployeeDto> test(@RequestParam("name") String name) {
+    return ResponseEntity.ok(employeeService.getEmployeeByName(name));
   }
 
   @GetMapping("/employees/{roles}")
-  public ResponseEntity<List<Employee>> all(@PathVariable("roles") String role) {
-    List<Employee> employees = employeeEntitiesService.getAllEmployee(role);
+  public ResponseEntity<List<EmployeeDto>> all(@PathVariable("roles") String role) {
+    List<EmployeeDto> employees = employeeService.getAllEmployee(role);
     return ResponseEntity.ok(employees);
   }
 
   @PostMapping("/employees")
-  public ResponseEntity<Employee> add(@RequestBody Employee employee) {
-    Employee e = employeeEntitiesService.addEmployee(employee);
+  public ResponseEntity<EmployeeDto> add(@RequestBody EmployeeDto employee) {
+    EmployeeDto e = employeeService.addEmployee(employee);
     return ResponseEntity.ok(e);
   }
 
   @PutMapping("/employees/{id}")
-  public ResponseEntity<Employee> update(@PathVariable Long id, @RequestBody Employee employee) {
-    Employee e = employeeEntitiesService.updateEmployee(id, employee);
+  public ResponseEntity<EmployeeDto> update(@PathVariable Long id,
+      @RequestBody EmployeeDto employee) {
+    EmployeeDto e = employeeService.updateEmployee(id, employee);
     return ResponseEntity.ok(e);
   }
 
   @DeleteMapping("/employees/{id}")
   public HttpStatus delete(@PathVariable Long id) {
-    employeeEntitiesService.delete(id);
+    employeeService.delete(id);
     return HttpStatus.OK;
   }
 
+  @GetMapping("/greeting/{user}")
+  public ResponseEntity<String> greeting(@PathVariable("user") String user) {
+    return ResponseEntity.ok(String.format("Hellooooo %s!!!", user));
+  }
 
+  @GetMapping("/greeting")
+  public ResponseEntity<String> greeting2() {
+    return ResponseEntity.ok(String.format("Hellooooo %s!!!", "a"));
+  }
 
 }
