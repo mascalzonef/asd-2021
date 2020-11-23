@@ -1,0 +1,37 @@
+
+<app-infobanner [message] = "'Log into the system'" [username]= "''" [showUsername]=false ></app-infobanner>
+
+<div>
+    <label for="usernameInput">Username</label>
+    <!--<input type="text" id="usernameInput" placeholder="Username" value="{{username}}" /> -->
+    <input type="text" id="usernameInput" placeholder="Username" [(ngModel)]="username" value="{{username}}"/>
+
+
+    <label for="Input">Password:</label>
+    <!--<input type="password" id="passwordInput" placeholder="Password" value="{{password}}" />-->
+    <input type="password" id="passwordInput" placeholder="Password" [(ngModel)]="password" />
+
+    <button (click) = doLogin()>Login</button>
+
+</div>
+
+<div *ngIf="showMessages">
+    <ng-container *ngIf="isAuthenticate; then thenBlock else elseBlock" ></ng-container>
+    <ng-template #thenBlock>{{infoMessage}}</ng-template>
+    <ng-template #elseBlock>{{errorMessage}}</ng-template>
+</div>
+    
+
+
+<!-- <div *ngIf="!isAuthenticate" >{{errorMessage}}</div> -->
+
+
+
+
+<!--
+<br /><br />
+
+<p>
+    Your username is: [{{username}}] and your password is: [{{password}}]
+</p>
+-->

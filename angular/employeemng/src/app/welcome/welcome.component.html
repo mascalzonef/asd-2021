@@ -1,0 +1,11 @@
+<app-infobanner [message] = "'Logged user:'" [username]="user" [showUsername]=true ></app-infobanner>
+<p>{{message}}</p>
+<p>user: {{user}}</p>
+
+<div>
+    Click <a routerLink="/employees">here</a>  to show all the employee!
+    <button type="button" (click) = "getGreeting()">greeting</button>
+    <h1>{{messageWs}}</h1>
+</div>
+
+
