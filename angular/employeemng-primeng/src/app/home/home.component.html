@@ -1,0 +1,24 @@
+<p-tabMenu [model]="items" [activeItem]="items[0]"></p-tabMenu>
+
+<p-toast></p-toast>
+{{showSuccess()}}
+<!--<button type="button" pButton pRipple (click)="showSuccess()" label="Success" class="p-button-success"></button>-->
+
+<app-employees [role] = "'role_1'" (onEditEmployee) = "onEditEmployee($event)"></app-employees>
+
+<br /><br />
+<p-fieldset legend="Edit Employee" >
+  <div class="p-field p-grid">
+    <label for="firstname3" class="p-col-fixed" style="width:100px">Role</label>
+    <div class="p-col">
+        <input id="roleInput" type="text" pInputText [(ngModel)]="employeeInputRole"> 
+    </div>
+  </div>
+  <div class="p-field p-grid">
+    <label for="lastname3" class="p-col-fixed" style="width:100px">Name</label>
+    <div class="p-col">
+        <input id="nameInput" type="text" pInputText [(ngModel)]="employeeInputName"> 
+    </div>
+  </div>
+
+</p-fieldset>
