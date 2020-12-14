@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="MavenProjectsManager">
+    <option name="originalFiles">
+      <list>
+        <option value="$PROJECT_DIR$/exercise_01/011-springbase/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_01/012-springbase/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_01/013-springbase/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_01/014-springboot/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_02/021-jpa-entities/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_02/022-uni-example/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_03/my-uni/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_03/03-uniprj/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_03/031-store/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_03/demo/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_03-04/03-uniprj/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_03-04/031-store/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_05/051_bank/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_05/052_rest/pom.xml" />
+        <option value="$PROJECT_DIR$/intermediate-test/inter/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_05-06/051_bank/pom.xml" />
+        <option value="$PROJECT_DIR$/exercise_05-06/052_rest/pom.xml" />
+      </list>
+    </option>
+  </component>
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_15" default="false" project-jdk-name="15" project-jdk-type="JavaSDK">
+    <output url="file://$PROJECT_DIR$/out" />
+  </component>
+</project>

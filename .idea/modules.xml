@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/exercise_05-06/051_bank/051_bank.iml" filepath="$PROJECT_DIR$/exercise_05-06/051_bank/051_bank.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_05-06/052_rest/052_rest.iml" filepath="$PROJECT_DIR$/exercise_05-06/052_rest/052_rest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_01/011-springbase/exercise_01.ex1-01-springbase.iml" filepath="$PROJECT_DIR$/exercise_01/011-springbase/exercise_01.ex1-01-springbase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_01/012-springbase/exercise_01.ex1-02-springbase.iml" filepath="$PROJECT_DIR$/exercise_01/012-springbase/exercise_01.ex1-02-springbase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_01/013-springbase/exercise_01.ex1-03-springbase.iml" filepath="$PROJECT_DIR$/exercise_01/013-springbase/exercise_01.ex1-03-springbase.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_01/014-springboot/exercise_01.ex1-04-springboot.iml" filepath="$PROJECT_DIR$/exercise_01/014-springboot/exercise_01.ex1-04-springboot.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_02/021-jpa-entities/exercise_02.ex2-01-jpa-entities.iml" filepath="$PROJECT_DIR$/exercise_02/021-jpa-entities/exercise_02.ex2-01-jpa-entities.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_02/022-uni-example/exercise_02.ex2-02-uni-example.iml" filepath="$PROJECT_DIR$/exercise_02/022-uni-example/exercise_02.ex2-02-uni-example.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_03-04/031-store/exercise_03-04.ex3-01-store.iml" filepath="$PROJECT_DIR$/exercise_03-04/031-store/exercise_03-04.ex3-01-store.iml" />
+      <module fileurl="file://$PROJECT_DIR$/exercise_03-04/032-uniprj/exercise_03-04.ex3-02-uniprj.iml" filepath="$PROJECT_DIR$/exercise_03-04/032-uniprj/exercise_03-04.ex3-02-uniprj.iml" />
+      <module fileurl="file://$PROJECT_DIR$/intermediate-test/inter/inter.iml" filepath="$PROJECT_DIR$/intermediate-test/inter/inter.iml" />
+    </modules>
+  </component>
+</project>
