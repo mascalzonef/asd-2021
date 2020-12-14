@@ -84,4 +84,18 @@ public class EmployeeController {
     return ResponseEntity.ok(String.format("Hellooooo %s!!!", "a"));
   }
 
+  @GetMapping("/login")
+  public ResponseEntity<Boolean> login(@RequestParam("username") String username,
+      @RequestParam("password") String password ) {
+    System.out.println(String.format("Username: [%s] - Password: [%s]", username, password));
+    if(username.trim().equals("ciccio") && password.trim().equals("pasticcio"))
+      return ResponseEntity.ok(true);
+    return ResponseEntity.ok(false);
+  }
+
+  @PostMapping("/mocklogin")
+  public ResponseEntity<Boolean> otherLogin() {
+      return ResponseEntity.ok(true);
+  }
+
 }
